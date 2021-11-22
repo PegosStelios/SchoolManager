@@ -15,5 +15,6 @@ namespace SchoolManager.Data
         }
         public DbSet<SchoolManager.Models.Student> Student { get; set; }
         public DbSet<SchoolManager.Models.Teachers> Teachers { get; set; }
+        public DbSet<SchoolManager.Models.Schools> Schools { get; set; }
     }
 }
