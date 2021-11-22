@@ -60,7 +60,7 @@ namespace SchoolManager.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,SchoolName,Subject,WorkHours,SickHours,isPrincipal")] Teachers teachers)
+        public async Task<IActionResult> Create([Bind("Id,TeacherId,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,SchoolName,Subject,WorkHours,SickHours,isPrincipal")] Teachers teachers)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace SchoolManager.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,SchoolName,Subject,WorkHours,SickHours,isPrincipal")] Teachers teachers)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,TeacherId,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,SchoolName,Subject,WorkHours,SickHours,isPrincipal")] Teachers teachers)
         {
             if (id != teachers.Id)
             {

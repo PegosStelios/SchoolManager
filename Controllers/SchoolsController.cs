@@ -61,7 +61,7 @@ namespace SchoolManager.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SchoolName,SchoolID,Region,Teachers,Students,Vacancies")] Schools schools)
+        public async Task<IActionResult> Create([Bind("Id,SchoolId,SchoolName,SchoolID,Region,Teachers,Students,Vacancies")] Schools schools)
         {
             if (ModelState.IsValid)
             {

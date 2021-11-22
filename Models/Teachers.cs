@@ -3,6 +3,7 @@
     public class Teachers
     {
         public int Id { get; set; }
+        public string TeacherId { get; set; }
         public string FirstName { get; set; }
         public string SurName { get; set; }
         public string DoB { get; set; }
