@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,12 +20,15 @@ namespace SchoolManager.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Teachers
+
         public async Task<IActionResult> Index()
         {
             return View(await _context.Teachers.ToListAsync());
         }
 
+        [Authorize]
         // GET: Teachers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,6 +47,7 @@ namespace SchoolManager.Controllers
             return View(teachers);
         }
 
+        [Authorize]
         // GET: Teachers/Create
         public IActionResult Create()
         {
@@ -52,6 +57,7 @@ namespace SchoolManager.Controllers
         // POST: Teachers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,SchoolName,Subject,WorkHours,SickHours,isPrincipal")] Teachers teachers)
@@ -65,6 +71,7 @@ namespace SchoolManager.Controllers
             return View(teachers);
         }
 
+        [Authorize]
         // GET: Teachers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,6 +91,7 @@ namespace SchoolManager.Controllers
         // POST: Teachers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,SchoolName,Subject,WorkHours,SickHours,isPrincipal")] Teachers teachers)
@@ -116,6 +124,7 @@ namespace SchoolManager.Controllers
             return View(teachers);
         }
 
+        [Authorize]
         // GET: Teachers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -135,6 +144,7 @@ namespace SchoolManager.Controllers
         }
 
         // POST: Teachers/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

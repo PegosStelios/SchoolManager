@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,11 +21,28 @@ namespace SchoolManager.Controllers
         }
 
         // GET: Students
+
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Student.ToListAsync());
         }
 
+        [Authorize]
+        // GET: Students/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+
+        [Authorize]
+        // GET: Students/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults(String SearchTerm)
+        {
+            return View("Index", await _context.Student.Where( s => s.StudentId.Contains(SearchTerm) ).ToListAsync());
+        }
+
+        [Authorize]
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,7 +61,10 @@ namespace SchoolManager.Controllers
             return View(student);
         }
 
+        [Authorize]
         // GET: Students/Create
+
+
         public IActionResult Create()
         {
             return View();
@@ -52,9 +73,10 @@ namespace SchoolManager.Controllers
         // POST: Students/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,Grade,SchoolName,SickHours,FailedSubjects")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,StudentId,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,Grade,SchoolName,SickHours,FailedSubjects")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +87,7 @@ namespace SchoolManager.Controllers
             return View(student);
         }
 
+        [Authorize]
         // GET: Students/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,9 +107,10 @@ namespace SchoolManager.Controllers
         // POST: Students/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,Grade,SchoolName,SickHours,FailedSubjects")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,StudentId,FirstName,SurName,DoB,Gender,Email,Phone,FatherName,MotherName,Region,Grade,SchoolName,SickHours,FailedSubjects")] Student student)
         {
             if (id != student.Id)
             {
@@ -116,6 +140,7 @@ namespace SchoolManager.Controllers
             return View(student);
         }
 
+        [Authorize]
         // GET: Students/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -135,6 +160,7 @@ namespace SchoolManager.Controllers
         }
 
         // POST: Students/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
