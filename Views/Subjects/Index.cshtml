@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SchoolManager.Models.Subjects>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--<h1>Index</h1>-->
+
+<p>
+    <a asp-action="Create">Δημιουργία Νέου</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherRegistered)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiredGrade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiredHours)
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherRegistered)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Επεξεργασία</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Λεπτομέρειες</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Διαγραφή</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolManager.Data;
 
 namespace SchoolManager.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211122233530_added-subjects")]
+    partial class addedsubjects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,35 +285,35 @@ namespace SchoolManager.Data.Migrations
                     b.Property<string>("Department")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MaxAbsentHours")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MaxAbsentHours")
+                        .HasColumnType("int");
 
-                    b.Property<string>("RequiredGrade")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("RequiredGrade")
+                        .HasColumnType("float");
 
-                    b.Property<string>("RequiredHours")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("RequiredHours")
+                        .HasColumnType("float");
 
-                    b.Property<string>("RequiredTests")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("RequiredTests")
+                        .HasColumnType("float");
 
-                    b.Property<string>("StudentAmount")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("StudentAmount")
+                        .HasColumnType("int");
 
                     b.Property<string>("SubjectId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TeacherCountInClass")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TeacherCountInClass")
+                        .HasColumnType("int");
 
-                    b.Property<string>("TeacherRegistered")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TeacherRegistered")
+                        .HasColumnType("int");
 
-                    b.Property<string>("TotalHours")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("TotalHours")
+                        .HasColumnType("float");
 
-                    b.Property<string>("TotalTests")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("TotalTests")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

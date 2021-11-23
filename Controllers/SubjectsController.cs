@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,26 +10,22 @@ using SchoolManager.Models;
 
 namespace SchoolManager.Controllers
 {
-    public class SchoolsController : Controller
+    public class SubjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SchoolsController(ApplicationDbContext context)
+        public SubjectsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [Authorize]
-        // GET: Schools
-
-        [Authorize]
+        // GET: Subjects
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Schools.ToListAsync());
+            return View(await _context.Subjects.ToListAsync());
         }
 
-        [Authorize]
-        // GET: Schools/Details/5
+        // GET: Subjects/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -38,42 +33,39 @@ namespace SchoolManager.Controllers
                 return NotFound();
             }
 
-            var schools = await _context.Schools
+            var subjects = await _context.Subjects
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (schools == null)
+            if (subjects == null)
             {
                 return NotFound();
             }
 
-            return View(schools);
+            return View(subjects);
         }
 
-        [Authorize]
-        // GET: Schools/Create
+        // GET: Subjects/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Schools/Create
+        // POST: Subjects/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SchoolId,SchoolName,SchoolID,Region,Teachers,Students,Vacancies")] Schools schools)
+        public async Task<IActionResult> Create([Bind("Id,SubjectId,StudentAmount,RequiredGrade,RequiredHours,RequiredTests,TotalTests,TotalHours,MaxAbsentHours,TeacherCountInClass,TeacherRegistered,Department")] Subjects subjects)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(schools);
+                _context.Add(subjects);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(schools);
+            return View(subjects);
         }
 
-        [Authorize]
-        // GET: Schools/Edit/5
+        // GET: Subjects/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,23 +73,22 @@ namespace SchoolManager.Controllers
                 return NotFound();
             }
 
-            var schools = await _context.Schools.FindAsync(id);
-            if (schools == null)
+            var subjects = await _context.Subjects.FindAsync(id);
+            if (subjects == null)
             {
                 return NotFound();
             }
-            return View(schools);
+            return View(subjects);
         }
 
-        // POST: Schools/Edit/5
+        // POST: Subjects/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SchoolName,SchoolID,Region,Teachers,Students,Vacancies")] Schools schools)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SubjectId,StudentAmount,RequiredGrade,RequiredHours,RequiredTests,TotalTests,TotalHours,MaxAbsentHours,TeacherCountInClass,TeacherRegistered,Department")] Subjects subjects)
         {
-            if (id != schools.Id)
+            if (id != subjects.Id)
             {
                 return NotFound();
             }
@@ -106,12 +97,12 @@ namespace SchoolManager.Controllers
             {
                 try
                 {
-                    _context.Update(schools);
+                    _context.Update(subjects);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SchoolsExists(schools.Id))
+                    if (!SubjectsExists(subjects.Id))
                     {
                         return NotFound();
                     }
@@ -122,11 +113,10 @@ namespace SchoolManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(schools);
+            return View(subjects);
         }
 
-        [Authorize]
-        // GET: Schools/Delete/5
+        // GET: Subjects/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,31 +124,30 @@ namespace SchoolManager.Controllers
                 return NotFound();
             }
 
-            var schools = await _context.Schools
+            var subjects = await _context.Subjects
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (schools == null)
+            if (subjects == null)
             {
                 return NotFound();
             }
 
-            return View(schools);
+            return View(subjects);
         }
 
-        // POST: Schools/Delete/5
-        [Authorize]
+        // POST: Subjects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var schools = await _context.Schools.FindAsync(id);
-            _context.Schools.Remove(schools);
+            var subjects = await _context.Subjects.FindAsync(id);
+            _context.Subjects.Remove(subjects);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SchoolsExists(int id)
+        private bool SubjectsExists(int id)
         {
-            return _context.Schools.Any(e => e.Id == id);
+            return _context.Subjects.Any(e => e.Id == id);
         }
     }
 }
