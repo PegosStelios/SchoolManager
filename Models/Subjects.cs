@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SchoolManager.Models
+﻿namespace SchoolManager.Models
 {
     public class Subjects
     {
@@ -18,20 +15,9 @@ namespace SchoolManager.Models
         public string TeacherRegistered { get; set; }
         public string Department { get; set; }
 
-        public Dictionary<string, string> Labels = new Dictionary<string, string>();
-        public Subjects(string Department, string StudentAmount, string RequiredGrade, string RequiredHours, string TeacherRegistered)
+        public Subjects()
         {
-            this.Department = Department;
-            this.StudentAmount = StudentAmount;
-            this.RequiredGrade = RequiredGrade;
-            this.RequiredHours = RequiredHours;
-            this.TeacherRegistered = TeacherRegistered;
 
-            this.Labels.Add("Τομέας", this.Department);
-            this.Labels.Add("Ποσότητα Μαθητών", this.StudentAmount);
-            this.Labels.Add("Ελάχιστος Βαθμός", this.RequiredGrade);
-            this.Labels.Add("Ελάχιστές Διδακτικές Ώρες", this.RequiredHours);
-            this.Labels.Add("Ποσότητα Καθηγητών", this.TeacherRegistered);
         }
     }
 }

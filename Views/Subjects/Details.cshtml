@@ -7,74 +7,74 @@
 <h1>Λεπτομέρειες Μαθημάτων</h1>
 
 <div>
-    <h4>Subjects</h4>
+    <h4>Μαθήματα</h4>
     <hr />
-    <dl class="row">
+<dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SubjectId)
+            ID Μαθήματος
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.SubjectId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StudentAmount)
+            Τομέας
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+        <dt class = "col-sm-2">
+            Μαθητές
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.StudentAmount)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RequiredGrade)
+            Βαθμός
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RequiredGrade)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RequiredHours)
+            Διδακτικές Ώρες
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RequiredHours)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RequiredTests)
+            Ελάχιστα Τεστ
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.RequiredTests)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalTests)
+            Συνολικά Τεστ
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TotalTests)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalHours)
+            Μέγιστες Διδακτικές Ώρες
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TotalHours)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxAbsentHours)
+            Απουσίες
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.MaxAbsentHours)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TeacherCountInClass)
+            Καθηγητές στην Τάξη
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TeacherCountInClass)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TeacherRegistered)
+            Καθηγητές
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TeacherRegistered)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Department)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Department)
         </dd>
     </dl>
 </div>

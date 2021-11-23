@@ -13,68 +13,68 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SubjectId" class="control-label"></label>
+                <label asp-for="SubjectId" class="control-label"> <a>ID Μαθήματος</a> </label>
                 <input asp-for="SubjectId" class="form-control" />
                 <span asp-validation-for="SubjectId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StudentAmount" class="control-label"></label>
-                <input asp-for="StudentAmount" class="form-control" />
-                <span asp-validation-for="StudentAmount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequiredGrade" class="control-label"></label>
-                <input asp-for="RequiredGrade" class="form-control" />
-                <span asp-validation-for="RequiredGrade" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequiredHours" class="control-label"></label>
-                <input asp-for="RequiredHours" class="form-control" />
-                <span asp-validation-for="RequiredHours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RequiredTests" class="control-label"></label>
-                <input asp-for="RequiredTests" class="form-control" />
-                <span asp-validation-for="RequiredTests" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalTests" class="control-label"></label>
-                <input asp-for="TotalTests" class="form-control" />
-                <span asp-validation-for="TotalTests" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalHours" class="control-label"></label>
-                <input asp-for="TotalHours" class="form-control" />
-                <span asp-validation-for="TotalHours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxAbsentHours" class="control-label"></label>
-                <input asp-for="MaxAbsentHours" class="form-control" />
-                <span asp-validation-for="MaxAbsentHours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TeacherCountInClass" class="control-label"></label>
-                <input asp-for="TeacherCountInClass" class="form-control" />
-                <span asp-validation-for="TeacherCountInClass" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TeacherRegistered" class="control-label"></label>
-                <input asp-for="TeacherRegistered" class="form-control" />
-                <span asp-validation-for="TeacherRegistered" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Department" class="control-label"></label>
+                <label asp-for="Department" class="control-label"> <a>Τομέας</a> </label>
                 <input asp-for="Department" class="form-control" />
                 <span asp-validation-for="Department" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="StudentAmount" class="control-label"> <a>Αριθμός Μαθητών</a> </label>
+                <input asp-for="StudentAmount" class="form-control" />
+                <span asp-validation-for="StudentAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequiredGrade" class="control-label"> <a>Βαθμός</a> </label>
+                <input asp-for="RequiredGrade" class="form-control" />
+                <span asp-validation-for="RequiredGrade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequiredHours" class="control-label"> <a>Διδακτικές Ώρες</a> </label>
+                <input asp-for="RequiredHours" class="form-control" />
+                <span asp-validation-for="RequiredHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequiredTests" class="control-label"> <a>Ελάχιστα Τεστ</a> </label>
+                <input asp-for="RequiredTests" class="form-control" />
+                <span asp-validation-for="RequiredTests" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalTests" class="control-label"> <a>Συνολικά Τεστ</a> </label>
+                <input asp-for="TotalTests" class="form-control" />
+                <span asp-validation-for="TotalTests" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalHours" class="control-label"> <a>Μέγιστες Διδακτικές Ώρες</a> </label>
+                <input asp-for="TotalHours" class="form-control" />
+                <span asp-validation-for="TotalHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxAbsentHours" class="control-label"> <a>Απουσίες</a> </label>
+                <input asp-for="MaxAbsentHours" class="form-control" />
+                <span asp-validation-for="MaxAbsentHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeacherCountInClass" class="control-label"> <a>Αριθμός Καθηγητών στην Τάξη</a> </label>
+                <input asp-for="TeacherCountInClass" class="form-control" />
+                <span asp-validation-for="TeacherCountInClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeacherRegistered" class="control-label"> <a>Αριθμός Καθηγητών</a> </label>
+                <input asp-for="TeacherRegistered" class="form-control" />
+                <span asp-validation-for="TeacherRegistered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Δημιουργία" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Πίσω στην λίστα</a>
 </div>
 
